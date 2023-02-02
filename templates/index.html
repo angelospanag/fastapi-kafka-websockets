@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <style>
+      li {
+        animation-name: example;
+        animation-duration: 2s;
+      }
+      @keyframes example {
+        0% {
+          background-color: red;
+        }
+        25% {
+          background-color: yellow;
+        }
+        50% {
+          background-color: orange;
+        }
+        75% {
+          background-color: green;
+        }
+        100% {
+          background-color: blue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <script>
+      var ws = new WebSocket("ws://localhost:8000/ws");
+      ws.onmessage = function (event) {
+        var messages = document.getElementById("messages");
+        var message = document.createElement("li");
+        var content = document.createTextNode(event.data);
+        console.log(event.data);
+        message.appendChild(content);
+        messages.appendChild(message);
+      };
+    </script>
+  </body>
+</html>
