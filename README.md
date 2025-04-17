@@ -1,5 +1,7 @@
 # fastapi-kafka-websockets
 
+Experimenting with a full flow of sending messages from an Apache Kafka consumer, to a FastAPI websockets endpoint, to a UI using a JavaScript websockets connection.
+
 ## Prerequisites
 
 ### Quick install for MacOS
@@ -7,6 +9,8 @@
 ```bash
 brew install python@3.13 uv kafka
 ```
+
+## Running
 
 ### Start Apache Kafka (using MacOS and `brew`)
 
