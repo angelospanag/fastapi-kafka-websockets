@@ -1,24 +1,34 @@
 # fastapi-kafka-websockets
 
-## Download and extract Kafka
+## Prerequisites
+
+### Quick install for MacOS
+
 ```bash
-wget https://archive.apache.org/dist/kafka/3.3.1/kafka_2.13-3.3.1.tgz
-tar -xzf kafka_2.13-3.3.1.tgz 
-cd kafka_2.13-3.3.1
+brew install python@3.13 uv kafka
 ```
 
-## Start Kafka server
+### Start Apache Kafka (using MacOS and `brew`)
+
 ```bash
-bin/kafka-server-start.sh config/kraft/server.properties
+brew services start zookeeper
+brew services start kafka
 ```
 
 ## Start Kafka producer
+
 ```bash
-bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+kafka-console-producer --topic quickstart-events --bootstrap-server localhost:9092
 ```
 
-
 ## Start Kafka consumer
+
 ```bash
-bin/kafka-console-consumer.sh --topic quickstart-events --from-beginningv --bootstrap-server localhost:9092 
+kafka-console-consumer --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+```
+
+## Run server
+
+```bash
+uvicorn main:app --reload
 ```

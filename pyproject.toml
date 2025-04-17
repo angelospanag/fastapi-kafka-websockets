@@ -1,24 +1,15 @@
-[tool.poetry]
-name = "python-kafka"
+[project]
+name = "fastapi-kafka-websockets"
 version = "0.1.0"
-description = ""
-authors = ["Angelos Panagiotopoulos <angelospanag@protonmail.com>"]
+description = "Add your description here"
 readme = "README.md"
-packages = [{ include = "python_kafka" }]
+requires-python = ">=3.13"
+dependencies = [
+    "aiokafka>=0.12.0",
+    "fastapi[standard]>=0.115.12",
+    "jinja2>=3.1.6",
+    "websockets>=15.0.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-websockets = "^10.4"
-fastapi = "^0.89.1"
-uvicorn = { extras = ["standard"], version = "^0.20.0" }
-jinja2 = "^3.1.2"
-aiokafka = "^0.8.0"
-
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.0.239"
-black = "^23.1.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = ["ruff>=0.11.5"]
