@@ -9,7 +9,8 @@ Experimenting with a full flow of sending messages from an Apache Kafka consumer
     - [Start Apache Kafka (using MacOS and `brew`)](#start-apache-kafka-using-macos-and-brew)
     - [Start Kafka producer](#start-kafka-producer)
     - [Start Kafka consumer](#start-kafka-consumer)
-    - [Run server](#run-server)
+    - [Run development server](#run-development-server)
+    - [Run production server](#run-production-server)
 
 ## Prerequisites
 
@@ -24,7 +25,6 @@ brew install python@3.13 uv kafka
 ### Start Apache Kafka (using MacOS and `brew`)
 
 ```bash
-brew services start zookeeper
 brew services start kafka
 ```
 
@@ -40,8 +40,16 @@ kafka-console-producer --topic quickstart-events --bootstrap-server localhost:90
 kafka-console-consumer --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
 ```
 
-### Run server
+### Run development server
 
 ```bash
-uvicorn main:app --reload
+uv run fastapi dev main.py
 ```
+
+### Run production server
+
+```bash
+uv run fastapi run main.py
+```
+
+Visit http://localhost:8000 and send some text from the Kafka console producer. The text will appear on your screen, after being picked up by the Kafka consumer of the backend, and sent through a websockets connection to the UI.
