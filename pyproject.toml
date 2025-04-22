@@ -1,7 +1,10 @@
 [project]
 name = "fastapi-kafka-websockets"
 version = "0.1.0"
-description = "Add your description here"
+authors = [
+    { name = "Angelos Panagiotopoulos", email = "angelospanag@protonmail.com" }
+]
+description = "Experimenting with a full flow of sending messages from an Apache Kafka consumer, to a FastAPI websockets endpoint, to a UI using a JavaScript websockets connection."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
