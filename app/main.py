@@ -4,10 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.websockets import WebSocket
 
-TOPICS = "quickstart-events"
-BOOTSTRAP_SERVERS = "localhost:9092"
-GROUP_ID = "my-group"
-AUTO_OFFSET_RESET = "latest"
+from app.config import get_settings
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -21,10 +18,10 @@ async def read_item(request: Request):
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     consumer = AIOKafkaConsumer(
-        TOPICS,
-        bootstrap_servers=BOOTSTRAP_SERVERS,
-        group_id=GROUP_ID,
-        auto_offset_reset=AUTO_OFFSET_RESET,
+        get_settings().topics,
+        bootstrap_servers=get_settings().bootstrap_servers,
+        group_id=get_settings().group_id,
+        auto_offset_reset=get_settings().auto_offset_reset,
     )
     await websocket.accept()
     while True:
