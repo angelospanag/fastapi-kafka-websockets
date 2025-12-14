@@ -6,7 +6,7 @@ UI using a JavaScript websockets connection.
 <!-- TOC -->
 * [fastapi-kafka-websockets](#fastapi-kafka-websockets)
   * [Prerequisites](#prerequisites)
-    * [Quick install for MacOS](#quick-install-for-macos)
+    * [Quick install for macOS](#quick-install-for-macos)
     * [Create a `.env` file at the root of the project](#create-a-env-file-at-the-root-of-the-project)
   * [Running](#running)
     * [Start Apache Kafka (using MacOS and `brew`)](#start-apache-kafka-using-macos-and-brew)
@@ -21,10 +21,10 @@ UI using a JavaScript websockets connection.
 
 ## Prerequisites
 
-### Quick install for MacOS
+### Quick install for macOS
 
 ```bash
-brew install python@3.13 uv kafka
+brew install python@3.14 uv kafka
 ```
 
 ### Create a `.env` file at the root of the project
