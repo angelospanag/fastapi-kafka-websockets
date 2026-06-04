@@ -30,6 +30,10 @@ run = "uv audit"
 description = "📦 Install dependencies into .venv from lockfile"
 run = "uv sync"
 
+[tasks.test]
+description = "🧪 Run tests"
+run = "uv run pytest"
+
 [tasks.deps]
 description = "📥 Update and sync dependencies"
 run = "uv sync -U"
