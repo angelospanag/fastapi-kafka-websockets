@@ -81,5 +81,6 @@ Visit http://localhost:8000 and send some text from the Kafka console producer. 
 | `mise run fmt`       | Format code via `ruff format`        |
 | `mise run lint`      | Lint code via `ruff check`           |
 | `mise run typecheck` | Type check via `ty check`            |
+| `mise run test`      | Run tests                            |
 | `mise run vuln`      | Audit deps for known vulnerabilities |
 | `mise run deps`      | Update and sync dependencies         |
